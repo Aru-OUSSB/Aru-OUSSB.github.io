@@ -17,6 +17,7 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            position: relative;
         }
         .header {
             margin-bottom: 20px;
@@ -48,6 +49,13 @@
         .player-photo {
             width: 40px;
             height: 40px;
+        }
+        .timestamp {
+            position: absolute;
+            bottom: 10px;
+            right: 20px;
+            font-size: 0.8em;
+            color: #666;
         }
     </style>
 </head>
@@ -112,6 +120,7 @@
         <td>0勝 0敗</td>
     </tr>
 </table>
+        <div class="timestamp">作成時刻: 14:25</div>
     </div>
 </body>
 </html>
