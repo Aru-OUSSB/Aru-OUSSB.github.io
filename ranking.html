@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mate Rate Ranking</title>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .header {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .title {
+            margin: 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f8f9fa;
+            font-weight: bold;
+        }
+        .player-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            justify-content: flex-start;
+        }
+        .player-photo {
+            width: 40px;
+            height: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="title">レートランキング</h1>
+        </div>
+        <table>    <tr>
+        <th>順位</th>
+        <th>プレイヤー</th>
+        <th>現在レート</th>
+        <th>最高レート</th>
+        <th>対戦成績</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>
+            <div class="player-info">
+                <img src="https://smashmate.net/img/uimage/20241118/UTYBVVCMNYAUTOUWQBAS.jpg" class="player-photo" alt="仁王">
+                仁王
+            </div>
+        </td>
+        <td>
+            1675
+        </td>
+        <td>
+            1720
+        </td>
+        <td>8勝 9敗</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>
+            <div class="player-info">
+                <img src="https://smashmate.net/img/uimage/20230414/TPOKEXUKACOVAMXVIGKY.jpg" class="player-photo" alt="十天/TEN">
+                十天/TEN
+            </div>
+        </td>
+        <td>
+            1541
+        </td>
+        <td>
+            1541
+        </td>
+        <td>16勝 12敗</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>
+            <div class="player-info">
+                <img src="https://smashmate.net/img/user_default.png" class="player-photo" alt="ユウスケ">
+                ユウスケ
+            </div>
+        </td>
+        <td>
+            1000
+        </td>
+        <td>
+            1000
+        </td>
+        <td>0勝 0敗</td>
+    </tr>
+</table>
+    </div>
+</body>
+</html>
