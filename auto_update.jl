@@ -17,15 +17,9 @@ if lines != lines2
         println(f,line)
     end
     close(f)
-        
-    run(`git add mate_ID.jl`)
-    run(`git commit -m "change_ID_$(Dates.format(now(), "mm/dd"))"`)
-    run(`git push origin main`)
-else
-    run(`git add mate_ID.jl`)
-    run(`git commit -m "change_ID_$(Dates.format(now(), "mm/dd"))"`)
-    run(`git push origin main`)
 end
+
+run(`git add mate_ID.jl`)
 
 lines = Nothing
 lines2 = Nothing
