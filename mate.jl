@@ -1,6 +1,5 @@
 using HTTP
-# HTMLのサンプルを読み込む（ファイルまたは文字列として）
-include("./mate_ID.jl")
+
 include("./mate_function.jl")
 
 const N = length(ID)

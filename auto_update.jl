@@ -1,7 +1,26 @@
 using Dates
 
+try
+    include("./mate_ID.jl")
+    f = open("./mate_ID.jl")
+    lines = read_Lines(f)
+    close(f)
+catch
+    include("./mate_ID_example.jl")
+    f = open("mate_ID_example.jl")
+    lines = read_lines(f)
+    close(f)
+end
+
+
 run(`git pull -f https://github.com/Aru-OUSSB/Aru-OUSSB.github.io.git main:main`)
 sleep(1)
+
+f = open("mate_ID.jl","w")
+for line in lines
+    println(f,line)
+end
+close(f)
 
 function run_update()
     while true
