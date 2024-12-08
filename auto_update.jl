@@ -7,7 +7,6 @@ close(f)
 
 run(`git add auto_update.jl`)
 run(`git add generate_static_html.jl`)
-run(`git add index.jl`)
 run(`git add mate_function.jl`)
 run(`git add mate_ID.jl`)
 run(`git add mate.jl`)
