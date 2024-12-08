@@ -5,6 +5,8 @@ f = open("./mate_ID.jl")
 lines = readlines(f)
 close(f)
 
+run(`git add .`)
+run(`git commit -m "shokisettei"`)
 run(`git pull -f https://github.com/Aru-OUSSB/Aru-OUSSB.github.io.git main:main`)
 sleep(5)
 
