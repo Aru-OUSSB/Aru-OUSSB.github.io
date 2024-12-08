@@ -5,7 +5,7 @@ f = open("./mate_ID.jl")
 lines = readlines(f)
 close(f)
 
-# run(`git pull -f https://github.com/Aru-OUSSB/Aru-OUSSB.github.io.git main:main`)
+run(`git pull -f https://github.com/Aru-OUSSB/Aru-OUSSB.github.io.git main:main`)
 sleep(1)
 
 f = open("./mate_ID.jl")
