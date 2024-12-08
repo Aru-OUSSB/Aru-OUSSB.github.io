@@ -3,12 +3,12 @@ using Dates
 try
     include("./mate_ID.jl")
     f = open("./mate_ID.jl")
-    lines = read_Lines(f)
+    lines = readlines(f)
     close(f)
 catch
     include("./mate_ID_example.jl")
     f = open("mate_ID_example.jl")
-    lines = read_lines(f)
+    lines = readlines(f)
     close(f)
 end
 
