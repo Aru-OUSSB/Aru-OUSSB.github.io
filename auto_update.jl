@@ -21,11 +21,11 @@ if lines != lines2
     close(f)
         
     run(`git add mate_ID.jl`)
-    run(`git commit -m "change_ID"`)
+    run(`git commit -m "change_ID_$(Dates.format(now(), "mm/dd"))"`)
     run(`git push origin main`)
 else
     run(`git add mate_ID.jl`)
-    run(`git commit -m "NO_change_ID"`)
+    run(`git commit -m "change_ID_$(Dates.format(now(), "mm/dd"))"`)
     run(`git push origin main`)
 end
 
