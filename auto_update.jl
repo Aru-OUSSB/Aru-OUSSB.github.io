@@ -30,9 +30,12 @@ if lines != lines2
     close(f)
 end
 
-run(`git add mate_ID.jl`)
-run(`git commit -m "change_ID_$(Dates.format(now(), "mm/dd"))"`)
-run(`git push origin main`)
+try
+    run(`git add mate_ID.jl`)
+    run(`git commit -m "change_ID_$(Dates.format(now(), "mm/dd"))"`)
+    run(`git push origin main`)
+catch
+end
 
 lines = Nothing
 lines2 = Nothing
