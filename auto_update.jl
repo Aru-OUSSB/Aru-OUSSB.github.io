@@ -20,6 +20,8 @@ if lines != lines2
 end
 
 run(`git add mate_ID.jl`)
+run(`git commit -m "change_ID_$(Dates.format(now(), "mm/dd"))"`)
+run(`git push origin main`)
 
 lines = Nothing
 lines2 = Nothing
