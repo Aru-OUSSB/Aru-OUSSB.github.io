@@ -1,6 +1,6 @@
 using Dates
 
-run(`git pull https://github.com/Aru-OUSSB/Aru-OUSSB.github.io.git main:main`)
+run(`git pull https://github.com/Aru-OUSSB/Aru-OUSSB.github.io.git main:main -f`)
 
 function run_update()
     while true
