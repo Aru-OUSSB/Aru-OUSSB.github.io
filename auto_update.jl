@@ -1,6 +1,7 @@
 using Dates
 
 run(`git pull -f https://github.com/Aru-OUSSB/Aru-OUSSB.github.io.git main:main`)
+sleep(1)
 
 function run_update()
     while true
