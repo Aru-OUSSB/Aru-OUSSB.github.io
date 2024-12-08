@@ -19,11 +19,15 @@ if lines != lines2
         println(f,line)
     end
     close(f)
+        
+    run(`git add mate_ID.jl`)
+    run(`git commit -m "change_ID"`)
+    run(`git push origin main`)
+else
+    run(`git add mate_ID.jl`)
+    run(`git commit -m "NO_change_ID"`)
+    run(`git push origin main`)
 end
-
-run(`git add mate_ID.jl`)
-run(`git commit -m "change_ID"`)
-run(`git push origin main`)
 
 
 function run_update()
