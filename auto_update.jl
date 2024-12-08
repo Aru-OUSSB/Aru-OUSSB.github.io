@@ -16,7 +16,7 @@ try
     run(`git commit -m "shokisettei"`)
 catch
 end
-endrun(`git pull -f https://github.com/Aru-OUSSB/Aru-OUSSB.github.io.git main:main`)
+run(`git pull -f https://github.com/Aru-OUSSB/Aru-OUSSB.github.io.git main:main`)
 sleep(5)
 
 f = open("./mate_ID.jl")
