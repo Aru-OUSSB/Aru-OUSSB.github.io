@@ -7,7 +7,7 @@ try
     close(f)
 catch
     include("./mate_ID_example.jl")
-    f = open("mate_ID_example.jl")
+    f = open("./mate_ID_example.jl")
     lines = readlines(f)
     close(f)
 end
