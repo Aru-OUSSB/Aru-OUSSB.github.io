@@ -12,8 +12,11 @@ run(`git add mate_ID.jl`)
 run(`git add mate.jl`)
 run(`git add README.md`)
 run(`git add start_auto_update.bat`)
-run(`git commit -m "shokisettei"`)
-run(`git pull -f https://github.com/Aru-OUSSB/Aru-OUSSB.github.io.git main:main`)
+try
+    run(`git commit -m "shokisettei"`)
+catch
+end
+endrun(`git pull -f https://github.com/Aru-OUSSB/Aru-OUSSB.github.io.git main:main`)
 sleep(5)
 
 f = open("./mate_ID.jl")
