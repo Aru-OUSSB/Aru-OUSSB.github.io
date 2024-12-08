@@ -10,9 +10,8 @@ catch
     f = open("./mate_ID_example.jl")
     lines = readlines(f)
     close(f)
-end
-
-
+    
+finally
 run(`git pull -f https://github.com/Aru-OUSSB/Aru-OUSSB.github.io.git main:main`)
 sleep(1)
 
@@ -21,6 +20,8 @@ for line in lines
     println(f,line)
 end
 close(f)
+end
+
 
 function run_update()
     while true
