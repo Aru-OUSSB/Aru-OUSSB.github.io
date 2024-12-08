@@ -6,21 +6,25 @@ lines = readlines(f)
 close(f)
 
 run(`git pull -f https://github.com/Aru-OUSSB/Aru-OUSSB.github.io.git main:main`)
-sleep(1)
+sleep(5)
 
 f = open("./mate_ID.jl")
 lines2 = readlines(f)
 close(f)
+print("lines==lines2__")
+print(lines == lines2)
 if lines != lines2
     f = open("./mate_ID.jl","w")
     for line in lines
         println(f,line)
     end
     close(f)
-    run(`git add mate_ID.jl`)
-    run(`git commit -m "change_ID"`)
-    run(`git push origin main`)
 end
+
+run(`git add mate_ID.jl`)
+run(`git commit -m "change_ID"`)
+run(`git push origin main`)
+
 
 function run_update()
     while true
