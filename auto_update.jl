@@ -8,6 +8,7 @@ run(`git add index.html`)
 run(`git add generate_static_html.jl`)
 run(`git add mate_function.jl`)
 run(`git add mate_ID.jl`)
+run(`git add mate_kankyo.jl`)
 run(`git add mate.jl`)
 run(`git add README.md`)
 run(`git add start_auto_update.bat`)
@@ -18,7 +19,7 @@ try
 catch
 end
 run(`git pull -f https://github.com/Aru-OUSSB/Aru-OUSSB.github.io.git main:main`)
-sleep(5)
+include("./mate_kankyo.jl")
 
 f = open("./mate_ID.jl")
 lines2 = readlines(f)
