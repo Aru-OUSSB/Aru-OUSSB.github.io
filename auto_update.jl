@@ -1,12 +1,3 @@
-try
-    using Dates
-    using HTTP
-catch
-    using Pkg
-    Pkg.add(Dates)
-    Pkg.add(HTTP)
-end
-
 include("./mate_ID.jl")
 f = open("./mate_ID.jl")
 lines = readlines(f)
