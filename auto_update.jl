@@ -13,6 +13,7 @@ run(`git add mate.jl`)
 run(`git add README.md`)
 run(`git add start_auto_update.bat`)
 run(`git add .github`)
+run(`git add 初期設定.bat`)
 
 try
     run(`git commit -m "shokisettei"`)
