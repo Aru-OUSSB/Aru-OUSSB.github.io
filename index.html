@@ -1,715 +1,415 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
-    <title>Mate Rate Ranking</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
+
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>レートランキング</title>
     <style>
-        body {
-            margin: 0;
-            padding: 20px;
-            background-color: #f0f0f0;
-            font-family: Arial, sans-serif;
+        @media (max-width:600px){
+            .flex-box0 {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0px;
+                background-color: white;
+            }
+            .flex-box1 {
+                position: relative;
+                width: 95vw;
+                height: 19vw;
+                background: repeating-linear-gradient(
+                135deg,
+                black,
+                black 5px, 
+                #222222 2px, 
+                #222222 7px 
+                );
+                background-color: black;
+                border: 0px solid #ccc;
+                font-weight: 700;
+                margin-bottom: 3px;
+            }
+            .rank{
+                background: linear-gradient(rgba(161, 134, 62, 0.8), rgba(202, 168, 70, 0.8), rgba(161, 134, 62, 0.8)) ; 
+                position: absolute;
+                justify-content: center; 
+                background-color: #967D36;
+                clip-path: polygon(0 100%, 0 0%, 100% 0%,  13.5vw 100%); 
+                width: 16.7vw; 
+                height: 6vw;
+            }
+            .rank_num{
+                font-family: "Roboto", sans-serif;
+                position: absolute;
+                display: flex;
+                justify-content: center; 
+                align-items: center;
+                vertical-align: middle;
+                color: white;
+                padding: 0px;
+                margin: 0px;
+                text-align: center;
+                width: 13.5vw; 
+                height: 6vw;
+                font-weight: bold;
+                font-size: 3.5vw;
+            }
+            .player-photo {
+                position: absolute;
+                height: 8.86vw;
+                bottom: 0.7vw;
+                left: 0.7vw;
+            }
+            .name{
+                display:flex;
+                align-items: center;
+                position: absolute;
+                color: white;
+                font-size: 3.7vw;
+                height: 8.86vw;
+                bottom: 0.7vw;
+                width: 40vw;
+                vertical-align: middle;
+                left: 13vw;
+                
+            }
+            .fighter0{
+                background-color: black;
+                position: absolute;
+                height: 9.6vw;
+                width: 47vw;
+                bottom: 0px;
+                right: 0px;
+                clip-path: polygon(0 100%, 5.8vw 0%, 100% 0%,  100% 100%);
+            }
+            .fighter{
+                position: absolute;
+                display: flex;
+                height: 9.6vw;
+                bottom: 0px;
+                right: 0px
+            }
+            .rate0{
+                font-family: "Roboto Condensed", sans-serif;
+                display: flex;
+                position: absolute;
+                color:white;
+                font-size: 3.4vw;
+                line-height: 3.4vw;
+                right: 27vw;
+                bottom: 11.9vw;
+                padding: 0px;
+                margin: 0px;
+            }
+            .rate{ 
+                background: linear-gradient(rgba(161, 134, 62, 0.8), rgba(202, 168, 70, 0.8), rgba(161, 134, 62, 0.8)) text; 
+                -webkit-text-fill-color: transparent; 
+                color: rgb(161, 134, 62); 
+                font-family: "Roboto Condensed", sans-serif;
+                position: absolute;
+                font-weight: 700;
+                font-size: 5.7vw;
+                height: 5.7vw;
+                right: 2vw;
+                bottom: 12vw;
+                letter-spacing: -0.05em;
+            }
         }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            position: relative;
+        @media (min-width:601px){
+            .flex-box0 {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0px;
+                background-color: white;
+            }
+            .flex-box1 {
+                position: relative;
+                width: 95vw;
+                height: 9vw;
+                background: repeating-linear-gradient(
+                135deg,
+                black,
+                black 5px,
+                #222222 2px,
+                #222222 7px
+                );
+                background-color: black;
+                border: 0px solid #ccc;
+                font-weight: bold;
+                margin-bottom: 3px;
+            }
+            .rank{
+                background: linear-gradient(rgba(161, 134, 62, 0.8), rgba(202, 168, 70, 0.8), rgba(161, 134, 62, 0.8)) ; 
+                position: absolute;
+                justify-content: center; 
+                background-color: #967D36;
+                clip-path: polygon(0 100%, 0 0%, 100% 0%, 7vw  100%);
+                width: 12vw; 
+                height: 100%;
+            }
+            .rank_num{
+                font-family: "Roboto", sans-serif;
+                position: absolute;
+                display: flex;
+                justify-content: center; 
+                align-items: center;
+                vertical-align: middle;
+                color: white;
+                padding: 0px;
+                margin: 0px;
+                text-align: center;
+                width: 9vw;
+                height: 100%;
+                font-weight: bold;
+                font-size: 3vw;
+            }
+            .player-photo {
+                position: absolute;
+                height: 7vw;
+                bottom: 0.5vw;
+                left: 6.5vw;
+            }
+            .name{
+                display:flex;
+                align-items: center;
+                position: absolute;
+                color: white;
+                font-size: 2.5vw;
+                height: 9vw;
+                bottom: 0px;
+                width: 28vw;
+                vertical-align: middle;
+                left: 22vw;
+            }
+            .fighter0{
+                background-color: black;
+                position: absolute;
+                height: 9vw;
+                width: 50vw;
+                bottom: 0px;
+                right: 0px;
+                clip-path: polygon(0 100%, 50px 0%, 100% 0%,  100% 100%);
+            }
+            .fighter{
+                position: absolute;
+                display: flex;
+                height: 9vw;
+                bottom: 0px;
+                right: 0px
+            }
+            .rate0{
+                font-family: "Roboto Condensed", sans-serif;
+                display: flex;
+                position: absolute;
+                color:white;
+                font-size: 1.8vw;
+                line-height: 1.8vw;
+                right: 24vw;
+                bottom: 4.3vw;
+                padding: 0px;
+                margin: 0px;
+            }
+            .rate{ 
+                background: linear-gradient(rgba(161, 134, 62, 0.8), rgba(202, 168, 70, 0.8), rgba(161, 134, 62, 0.8)) text; 
+                -webkit-text-fill-color: transparent; 
+                color: rgb(161, 134, 62); 
+                font-family: "Roboto Condensed", sans-serif;
+                position: absolute;
+                font-weight: 700;
+                font-size: 5.5vw;
+                height: 5.5vw;
+                right: 24vw;
+                bottom: 0px;
+                letter-spacing: -0.05em;
+            }
         }
-        .header {
-            margin-bottom: 20px;
-            text-align: center;
+        @media (min-width:1000px){
+            .flex-box0 {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0px;
+                background-color: white;
+            }
+            .flex-box1 {
+                position: relative;
+                width: 950px;
+                height: 90px;
+                background: repeating-linear-gradient(
+                135deg,
+                black,
+                black 5px,
+                #222222 2px,
+                #222222 7px
+                );
+                background-color: black;
+                border: 0px solid #ccc;
+                font-weight: bold;
+                margin-bottom: 3px;
+            }
+            .rank{
+                background: linear-gradient(rgba(161, 134, 62, 0.8), rgba(202, 168, 70, 0.8), rgba(161, 134, 62, 0.8)) ; 
+                position: absolute;
+                justify-content: center; 
+                background-color: #967D36;
+                clip-path: polygon(0 100%, 0 0%, 100% 0%, 70px  100%);
+                width: 120px; 
+                height: 100%;
+            }
+            .rank_num{
+                font-family: "Roboto", sans-serif;
+                position: absolute;
+                display: flex;
+                justify-content: center; 
+                align-items: center;
+                vertical-align: middle;
+                color: white;
+                padding: 0px;
+                margin: 0px;
+                text-align: center;
+                width: 90px;
+                height: 100%;
+                font-weight: bold;
+                font-size: 30px;
+            }
+            .player-photo {
+                position: absolute;
+                height: 70px;
+                bottom: 5px;
+                left: 65px;
+            }
+            .name{
+                display:flex;
+                align-items: center;
+                position: absolute;
+                color: white;
+                font-size: 25px;
+                height: 90px;
+                bottom: 0px;
+                width: 280px;
+                vertical-align: middle;
+                left: 220px;
+            }
+            .fighter0{
+                background-color: black;
+                position: absolute;
+                height: 90px;
+                width: 500px;
+                bottom: 0px;
+                right: 0px;
+                clip-path: polygon(0 100%, 50px 0%, 100% 0%,  100% 100%);
+            }
+            .fighter{
+                position: absolute;
+                display: flex;
+                height: 90px;
+                bottom: 0px;
+                right: 0px
+            }
+            .rate0{
+                font-family: "Roboto Condensed", sans-serif;
+                display: flex;
+                position: absolute;
+                color:white;
+                font-size: 18px;
+                line-height: 18px;
+                right: 240px;
+                bottom: 43px;
+                padding: 0px;
+                margin: 0px;
+            }
+            .rate{ 
+                background: linear-gradient(rgba(161, 134, 62, 0.8), rgba(202, 168, 70, 0.8), rgba(161, 134, 62, 0.8)) text; 
+                -webkit-text-fill-color: transparent; 
+                color: rgb(161, 134, 62); 
+                font-family: "Roboto Condensed", sans-serif;
+                position: absolute;
+                font-weight: 700;
+                font-size: 55px;
+                height: 55px;
+                right: 240px;
+                bottom: 0px;
+                letter-spacing: -0.05em;
+            }
         }
-        .title {
-            margin: 0;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-        th, td {
-            padding: 12px;
-            text-align: center;
-            border-bottom: 1px solid #ddd;
-        }
-        th {
-            background-color: #f8f9fa;
-            font-weight: bold;
-        }
-        .player-info {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            justify-content: flex-start;
-        }
-        .player-photo {
-            width: 40px;
-            height: 40px;
-        }
-        .timestamp {
-            position: absolute;
-            bottom: 10px;
-            right: 20px;
-            font-size: 0.8em;
-            color: #666;
-        }
-            
-        .Now_screen.no {
-            display: none;
-        }
-        .Max_screen.no {
-            display: none;
+        .stack-container {
+            position: relative; /* Set the parent container to relative */
+            width: 200px; /* Set a width for the container */
+            height: 200px; /* Set a height for the container */
         }
 
+        .stack-item {
+            position: absolute; /* Set each item to absolute */
+            width: 100px; /* Set a width for the items */
+            height: 100px; /* Set a height for the items */
+            background-color: rgba(150, 125, 54, 0.8); /* Example background color */
+            text-align: center;
+            line-height: 100px; /* Center text vertically */
+            color: white;
+        }
+
+        .item1 {
+            top: 10px; /* Position the first item */
+            left: 10px;
+        }
+
+        .item2 {
+            top: 50px; /* Adjust the position of the second item */
+            left: 30px;
+        }
+
+        .item3 {
+            top: 90px; /* Adjust the position of the third item */
+            left: 50px;
+        }
+
+        
+        .centering_item {
+        background-color: #2196F3;   /* 背景色指定 */
+        position: absolute;          /* 位置指定 */
+        top: 50%;                    /* 親要素の半分下にずらす */
+        left: 50%;                   /* 親要素の半分右にずらす */
+        transform: translateY(-50%) translateX(-50%);    /* 要素自体の半分、上と左にずらす */
+        padding: 20px;               /* 余白指定 */
+        }
+
+        
+        
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1 class="title">レートランキング</h1>
+    <div id="flexDisplay" class="flex-box0">
+        <div class="flex-box1">
+            <div class="rank"></div>
+            <div class="rank_num">1</div>
+            <div class="player-photo">
+                <img src="https://smashmate.net/img/uimage/20241118/UTYBVVCMNYAUTOUWQBAS.jpg" class="player-photo" alt="仁王">
+            </div>
+            <div class="name">仁王</div>
+            <div class="fighter0"></div>
+            <div class="fighter"><img src = "./1.avif" ></div>
+            <div class="rate0">RATE</div>
+            <div class="rate">1600 / 1657</div>
         </div>
-        <table class="Now_screen">    <tr>
-        <th>順位</th>
-        <th>プレイヤー</th>
-        <th>現在レート</th>
-        <th class="buttonMax" id="Max_btn">最高レート</th>
-        <th>対戦成績</th>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>
-            <div class="player-info">
+        <div class="flex-box1">
+            <div class="rank"></div>
+            <div class="rank_num">1</div>
+            <div class="player-photo">
                 <img src="https://smashmate.net/img/uimage/20241118/UTYBVVCMNYAUTOUWQBAS.jpg" class="player-photo" alt="仁王">
-                仁王
             </div>
-        </td>
-        <td>
-            1642
-        </td>
-        <td>
-            1657
-        </td>
-        <td>15勝 5敗</td>
-    </tr>
-    <tr>
-        <td>2</td>
-        <td>
-            <div class="player-info">
-                <img src="https://smashmate.net/img/uimage/20240409/TIOLIKSWUTZOZHAUDKWW.jpg" class="player-photo" alt="スタイリッシュ不倫FIRE">
-                スタイリッシュ不倫FIRE
-            </div>
-        </td>
-        <td>
-            1619
-        </td>
-        <td>
-            1620
-        </td>
-        <td>131勝 114敗</td>
-    </tr>
-    <tr>
-        <td>3</td>
-        <td>
-            <div class="player-info">
-                <img src="https://pbs.twimg.com/profile_images/1366769584297025538/7pOmJfro.jpg" class="player-photo" alt="プリンそば">
-                プリンそば
-            </div>
-        </td>
-        <td>
-            1541
-        </td>
-        <td>
-            1541
-        </td>
-        <td>5勝 2敗</td>
-    </tr>
-    <tr>
-        <td>4</td>
-        <td>
-            <div class="player-info">
-                <img src="https://smashmate.net/img/uimage/20240219/TMSREZTLGINYAMHRFKSM.jpg" class="player-photo" alt="きじとら">
-                きじとら
-            </div>
-        </td>
-        <td>
-            1539
-        </td>
-        <td>
-            1539
-        </td>
-        <td>6勝 4敗</td>
-    </tr>
-    <tr>
-        <td>5</td>
-        <td>
-            <div class="player-info">
-                <img src="https://smashmate.net/img/uimage/20241024/MWGAFZDKQEEYAKACTYVR.jpg" class="player-photo" alt="あるえ">
-                あるえ
-            </div>
-        </td>
-        <td>
-            1527
-        </td>
-        <td>
-            1527
-        </td>
-        <td>9勝 7敗</td>
-    </tr>
-    <tr>
-        <td>6</td>
-        <td>
-            <div class="player-info">
-                <img src="https://smashmate.net/img/uimage/20230514/UFSTPVZSNPZHXHQCFFPF.jpg" class="player-photo" alt="カルカリ性の何か">
-                カルカリ性の何か
-            </div>
-        </td>
-        <td>
-            1513
-        </td>
-        <td>
-            1528
-        </td>
-        <td>3勝 2敗</td>
-    </tr>
-    <tr>
-        <td>7</td>
-        <td>
-            <div class="player-info">
-                <img src="https://smashmate.net/img/user_default.png" class="player-photo" alt="ユウスケ">
-                ユウスケ
-            </div>
-        </td>
-        <td>
-            1434
-        </td>
-        <td>
-            1543
-        </td>
-        <td>12勝 17敗</td>
-    </tr>
-    <tr>
-        <td>8</td>
-        <td>
-            <div class="player-info">
-                <img src="https://smashmate.net/img/uimage/20241011/SDNSZFOZKJLNJLBVLJYM.jpg" class="player-photo" alt="みどりやま">
-                みどりやま
-            </div>
-        </td>
-        <td>
-            1402
-        </td>
-        <td>
-            1500
-        </td>
-        <td>2勝 9敗</td>
-    </tr>
-    <tr>
-        <td>9</td>
-        <td>
-            <div class="player-info">
-                <img src="https://pbs.twimg.com/profile_images/1563859983330168837/XOGxE27P.jpg" class="player-photo" alt="ふくてん">
-                ふくてん
-            </div>
-        </td>
-        <td>
-            1398
-        </td>
-        <td>
-            1543
-        </td>
-        <td>15勝 20敗</td>
-    </tr>
-    <tr>
-        <td>10</td>
-        <td>
-            <div class="player-info">
-                <img src="https://smashmate.net/img/uimage/20231011/EYYPGJQKZOCTVEISJFMI.jpg" class="player-photo" alt="ニーシャ">
-                ニーシャ
-            </div>
-        </td>
-        <td>
-            1200
-        </td>
-        <td>
-            1500
-        </td>
-        <td>20勝 45敗</td>
-    </tr>
-    <tr>
-        <td>11</td>
-        <td>
-            <div class="player-info">
-                <img src="https://smashmate.net/img/uimage/20231017/UKAWKKMYLEQXTXELATPX.jpg" class="player-photo" alt="すとろんぐ">
-                すとろんぐ
-            </div>
-        </td>
-        <td>
-            1000
-        </td>
-        <td>
-            1000
-        </td>
-        <td>0勝 0敗</td>
-    </tr>
-    <tr>
-        <td>12</td>
-        <td>
-            <div class="player-info">
-                <img src="https://smashmate.net/img/uimage/20230414/TPOKEXUKACOVAMXVIGKY.jpg" class="player-photo" alt="十天/TEN">
-                十天/TEN
-            </div>
-        </td>
-        <td>
-            1000
-        </td>
-        <td>
-            1000
-        </td>
-        <td>0勝 0敗</td>
-    </tr>
-    <tr>
-        <td>13</td>
-        <td>
-            <div class="player-info">
-                <img src="https://pbs.twimg.com/profile_images/1509726271185747971/UmEgB-r3.jpg" class="player-photo" alt="きゃべつ">
-                きゃべつ
-            </div>
-        </td>
-        <td>
-            1000
-        </td>
-        <td>
-            1000
-        </td>
-        <td>0勝 0敗</td>
-    </tr>
-    <tr>
-        <td>14</td>
-        <td>
-            <div class="player-info">
-                <img src="https://smashmate.net/img/uimage/20231030/RFZDIZDMCMSJILJQETJZ.jpg" class="player-photo" alt="サチヌ">
-                サチヌ
-            </div>
-        </td>
-        <td>
-            1000
-        </td>
-        <td>
-            1000
-        </td>
-        <td>0勝 0敗</td>
-    </tr>
-    <tr>
-        <td>15</td>
-        <td>
-            <div class="player-info">
-                <img src="https://pbs.twimg.com/profile_images/1604397764464414720/YoPAPxvG.jpg" class="player-photo" alt="きじとら サブ">
-                きじとら サブ
-            </div>
-        </td>
-        <td>
-            1000
-        </td>
-        <td>
-            1000
-        </td>
-        <td>0勝 0敗</td>
-    </tr>
-    <tr>
-        <td>16</td>
-        <td>
-            <div class="player-info">
-                <img src="https://smashmate.net/img/uimage/20240330/FOZFKDIPZMEQDBULUNDY.jpg" class="player-photo" alt="Figh！_はくしん">
-                Figh！_はくしん
-            </div>
-        </td>
-        <td>
-            1000
-        </td>
-        <td>
-            1000
-        </td>
-        <td>0勝 0敗</td>
-    </tr>
-    <tr>
-        <td>17</td>
-        <td>
-            <div class="player-info">
-                <img src="https://smashmate.net/img/uimage/20230914/WOJWYZXHTMHXYCCBZQYL.jpg" class="player-photo" alt="メルセンヌ素数">
-                メルセンヌ素数
-            </div>
-        </td>
-        <td>
-            1000
-        </td>
-        <td>
-            1000
-        </td>
-        <td>0勝 0敗</td>
-    </tr>
-    <tr>
-        <td>18</td>
-        <td>
-            <div class="player-info">
-                <img src="https://smashmate.net/img/uimage/20230426/MCENLHEGVPTVYDWTGTTE.jpg" class="player-photo" alt="おかねすきすき">
-                おかねすきすき
-            </div>
-        </td>
-        <td>
-            1000
-        </td>
-        <td>
-            1000
-        </td>
-        <td>0勝 0敗</td>
-    </tr>
-    <tr>
-        <td>19</td>
-        <td>
-            <div class="player-info">
-                <img src="https://smashmate.net/img/uimage/20240521/UCVZYSAOHKDFKUZJTDDA.jpg" class="player-photo" alt="ねるね">
-                ねるね
-            </div>
-        </td>
-        <td>
-            1000
-        </td>
-        <td>
-            1000
-        </td>
-        <td>0勝 0敗</td>
-    </tr>
-</table><table class="Max_screen no">    <tr>
-        <th>順位</th>
-        <th>プレイヤー</th>
-        <th class="buttonNow" id="Now_btn">現在レート</th>
-        <th>最高レート</th>
-        <th>対戦成績</th>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>
-            <div class="player-info">
-                <img src="https://smashmate.net/img/uimage/20241118/UTYBVVCMNYAUTOUWQBAS.jpg" class="player-photo" alt="仁王">
-                仁王
-            </div>
-        </td>
-        <td>
-            1642
-        </td>
-        <td>
-            1657
-        </td>
-        <td>15勝 5敗</td>
-    </tr>
-    <tr>
-        <td>2</td>
-        <td>
-            <div class="player-info">
-                <img src="https://smashmate.net/img/uimage/20240409/TIOLIKSWUTZOZHAUDKWW.jpg" class="player-photo" alt="スタイリッシュ不倫FIRE">
-                スタイリッシュ不倫FIRE
-            </div>
-        </td>
-        <td>
-            1619
-        </td>
-        <td>
-            1620
-        </td>
-        <td>131勝 114敗</td>
-    </tr>
-    <tr>
-        <td>3</td>
-        <td>
-            <div class="player-info">
-                <img src="https://smashmate.net/img/user_default.png" class="player-photo" alt="ユウスケ">
-                ユウスケ
-            </div>
-        </td>
-        <td>
-            1434
-        </td>
-        <td>
-            1543
-        </td>
-        <td>12勝 17敗</td>
-    </tr>
-    <tr>
-        <td>4</td>
-        <td>
-            <div class="player-info">
-                <img src="https://pbs.twimg.com/profile_images/1563859983330168837/XOGxE27P.jpg" class="player-photo" alt="ふくてん">
-                ふくてん
-            </div>
-        </td>
-        <td>
-            1398
-        </td>
-        <td>
-            1543
-        </td>
-        <td>15勝 20敗</td>
-    </tr>
-    <tr>
-        <td>5</td>
-        <td>
-            <div class="player-info">
-                <img src="https://pbs.twimg.com/profile_images/1366769584297025538/7pOmJfro.jpg" class="player-photo" alt="プリンそば">
-                プリンそば
-            </div>
-        </td>
-        <td>
-            1541
-        </td>
-        <td>
-            1541
-        </td>
-        <td>5勝 2敗</td>
-    </tr>
-    <tr>
-        <td>6</td>
-        <td>
-            <div class="player-info">
-                <img src="https://smashmate.net/img/uimage/20240219/TMSREZTLGINYAMHRFKSM.jpg" class="player-photo" alt="きじとら">
-                きじとら
-            </div>
-        </td>
-        <td>
-            1539
-        </td>
-        <td>
-            1539
-        </td>
-        <td>6勝 4敗</td>
-    </tr>
-    <tr>
-        <td>7</td>
-        <td>
-            <div class="player-info">
-                <img src="https://smashmate.net/img/uimage/20230514/UFSTPVZSNPZHXHQCFFPF.jpg" class="player-photo" alt="カルカリ性の何か">
-                カルカリ性の何か
-            </div>
-        </td>
-        <td>
-            1513
-        </td>
-        <td>
-            1528
-        </td>
-        <td>3勝 2敗</td>
-    </tr>
-    <tr>
-        <td>8</td>
-        <td>
-            <div class="player-info">
-                <img src="https://smashmate.net/img/uimage/20241024/MWGAFZDKQEEYAKACTYVR.jpg" class="player-photo" alt="あるえ">
-                あるえ
-            </div>
-        </td>
-        <td>
-            1527
-        </td>
-        <td>
-            1527
-        </td>
-        <td>9勝 7敗</td>
-    </tr>
-    <tr>
-        <td>9</td>
-        <td>
-            <div class="player-info">
-                <img src="https://smashmate.net/img/uimage/20241011/SDNSZFOZKJLNJLBVLJYM.jpg" class="player-photo" alt="みどりやま">
-                みどりやま
-            </div>
-        </td>
-        <td>
-            1402
-        </td>
-        <td>
-            1500
-        </td>
-        <td>2勝 9敗</td>
-    </tr>
-    <tr>
-        <td>10</td>
-        <td>
-            <div class="player-info">
-                <img src="https://smashmate.net/img/uimage/20231011/EYYPGJQKZOCTVEISJFMI.jpg" class="player-photo" alt="ニーシャ">
-                ニーシャ
-            </div>
-        </td>
-        <td>
-            1200
-        </td>
-        <td>
-            1500
-        </td>
-        <td>20勝 45敗</td>
-    </tr>
-    <tr>
-        <td>11</td>
-        <td>
-            <div class="player-info">
-                <img src="https://smashmate.net/img/uimage/20231017/UKAWKKMYLEQXTXELATPX.jpg" class="player-photo" alt="すとろんぐ">
-                すとろんぐ
-            </div>
-        </td>
-        <td>
-            1000
-        </td>
-        <td>
-            1000
-        </td>
-        <td>0勝 0敗</td>
-    </tr>
-    <tr>
-        <td>12</td>
-        <td>
-            <div class="player-info">
-                <img src="https://smashmate.net/img/uimage/20230414/TPOKEXUKACOVAMXVIGKY.jpg" class="player-photo" alt="十天/TEN">
-                十天/TEN
-            </div>
-        </td>
-        <td>
-            1000
-        </td>
-        <td>
-            1000
-        </td>
-        <td>0勝 0敗</td>
-    </tr>
-    <tr>
-        <td>13</td>
-        <td>
-            <div class="player-info">
-                <img src="https://pbs.twimg.com/profile_images/1509726271185747971/UmEgB-r3.jpg" class="player-photo" alt="きゃべつ">
-                きゃべつ
-            </div>
-        </td>
-        <td>
-            1000
-        </td>
-        <td>
-            1000
-        </td>
-        <td>0勝 0敗</td>
-    </tr>
-    <tr>
-        <td>14</td>
-        <td>
-            <div class="player-info">
-                <img src="https://smashmate.net/img/uimage/20231030/RFZDIZDMCMSJILJQETJZ.jpg" class="player-photo" alt="サチヌ">
-                サチヌ
-            </div>
-        </td>
-        <td>
-            1000
-        </td>
-        <td>
-            1000
-        </td>
-        <td>0勝 0敗</td>
-    </tr>
-    <tr>
-        <td>15</td>
-        <td>
-            <div class="player-info">
-                <img src="https://pbs.twimg.com/profile_images/1604397764464414720/YoPAPxvG.jpg" class="player-photo" alt="きじとら サブ">
-                きじとら サブ
-            </div>
-        </td>
-        <td>
-            1000
-        </td>
-        <td>
-            1000
-        </td>
-        <td>0勝 0敗</td>
-    </tr>
-    <tr>
-        <td>16</td>
-        <td>
-            <div class="player-info">
-                <img src="https://smashmate.net/img/uimage/20240330/FOZFKDIPZMEQDBULUNDY.jpg" class="player-photo" alt="Figh！_はくしん">
-                Figh！_はくしん
-            </div>
-        </td>
-        <td>
-            1000
-        </td>
-        <td>
-            1000
-        </td>
-        <td>0勝 0敗</td>
-    </tr>
-    <tr>
-        <td>17</td>
-        <td>
-            <div class="player-info">
-                <img src="https://smashmate.net/img/uimage/20230914/WOJWYZXHTMHXYCCBZQYL.jpg" class="player-photo" alt="メルセンヌ素数">
-                メルセンヌ素数
-            </div>
-        </td>
-        <td>
-            1000
-        </td>
-        <td>
-            1000
-        </td>
-        <td>0勝 0敗</td>
-    </tr>
-    <tr>
-        <td>18</td>
-        <td>
-            <div class="player-info">
-                <img src="https://smashmate.net/img/uimage/20230426/MCENLHEGVPTVYDWTGTTE.jpg" class="player-photo" alt="おかねすきすき">
-                おかねすきすき
-            </div>
-        </td>
-        <td>
-            1000
-        </td>
-        <td>
-            1000
-        </td>
-        <td>0勝 0敗</td>
-    </tr>
-    <tr>
-        <td>19</td>
-        <td>
-            <div class="player-info">
-                <img src="https://smashmate.net/img/uimage/20240521/UCVZYSAOHKDFKUZJTDDA.jpg" class="player-photo" alt="ねるね">
-                ねるね
-            </div>
-        </td>
-        <td>
-            1000
-        </td>
-        <td>
-            1000
-        </td>
-        <td>0勝 0敗</td>
-    </tr>
-</table>
-        <div class="timestamp">作成日時: 12/26 13:34</div>
+            <div class="name">仁王</div>
+            <div class="fighter0"></div>
+            <div class="fighter"><img src = "./1.avif" ></div>
+            <div class="rate0">RATE</div>
+            <div class="rate">1600 / 1657</div>
+        </div>
     </div>
-<script>
-    const buttonNow = document.getElementById('Now_btn')
-    const buttonMax = document.getElementById('Max_btn')
-    const screenNow = document.querySelector('.Now_screen')
-    const screenMax = document.querySelector('.Max_screen')
-    buttonNow.addEventListener('click',function(){
-        screenNow.classList.remove('no');
-        screenMax.classList.add('no');
-    })
-    buttonMax.addEventListener('click',function(){
-        screenNow.classList.add('no');
-        screenMax.classList.remove('no');
-    })
-</script>
 </body>
 </html>
