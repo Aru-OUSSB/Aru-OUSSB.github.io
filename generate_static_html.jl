@@ -9,84 +9,37 @@ function generate_ranking_table()
         df = get_current_ranking()
         
         rows = String[]
-        push!(rows, """
-            <tr>
-                <th>順位</th>
-                <th>プレイヤー</th>
-                <th>現在レート</th>
-                <th class="buttonMax" id="Max_btn">最高レート</th>
-                <th>対戦成績</th>
-            </tr>
-        """)
         
         for i in 1:N
-            row = (img_url=df.url[i], name=df.Name[i], current_rate=df.Now[i], max_rate=df.Max[i], Log = df.Log[i])
+            row = (img_url=df.url[i], name=df.Name[i], current_rate=df.Now[i], max_rate=df.Max[i], Log = df.Log[i], ID = df.ID[i])
             
             player_html = """
-                <tr>
-                    <td>$(i)</td>
-                    <td>
-                        <div class="player-info">
-                            <img src="$(row.img_url)" class="player-photo" alt="$(row.name)">
-                            $(row.name)
-                        </div>
-                    </td>
-                    <td>
-                        $(round(Int, row.current_rate))
-                    </td>
-                    <td>
-                        $(round(Int, row.max_rate))
-                    </td>
-                    <td>$(row.Log)</td>
-                </tr>
+        <div class="flex-box1">
+            <div class="rank"></div>
+            <div class="rank_num">$i</div>
+            <div class="player-photo">
+                <img src="$(row.img_url)" class="player-photo" alt="$(row.name)">
+            </div>
+            <div class="name">$(row.name)</div>
+            <div class="fighter0"></div>
+            <div class="fighter"><img src = "https://raw.githubusercontent.com/Aru-OUSSB/Aru-OUSSB.github.io/refs/heads/main/Figs/$(row.ID).avif" ></div>
+            <div class="rate0">RATE</div>
+            <div class="rate">$(row.current_rate) / $(row.max_rate)</div>
+        </div>
             """
             push!(rows, player_html)
         end
         
-        table1 = "<table class=\"Now_screen\">" * join(rows) * "</table>"
+        table = HTML_TEMPLATE * join(rows) * """
+    </div>
+</body>
+</html>"""
         
-        rank2 = [df.Max[i]*10000 + df.Now[i] + 1/df.ID[i] for i in 1:N]
-        junban2 = sortperm(rank2, rev=true)
-        df2 = (ID=df.ID[junban2], Name = df.Name[junban2], url = df.url[junban2], Now = df.Now[junban2], Max = df.Max[junban2], Log = df.Log[junban2])
+        # rank2 = [df.Max[i]*10000 + df.Now[i] + 1/df.ID[i] for i in 1:N]
+        # junban2 = sortperm(rank2, rev=true)
+        # df2 = (ID=df.ID[junban2], Name = df.Name[junban2], url = df.url[junban2], Now = df.Now[junban2], Max = df.Max[junban2], Log = df.Log[junban2])
         
-        rows2 = String[]
-        push!(rows2, """
-            <tr>
-                <th>順位</th>
-                <th>プレイヤー</th>
-                <th class="buttonNow" id="Now_btn">現在レート</th>
-                <th>最高レート</th>
-                <th>対戦成績</th>
-            </tr>
-        """)
-        
-        for i in 1:N
-            row = (img_url=df2.url[i], name=df2.Name[i], current_rate=df2.Now[i], max_rate=df2.Max[i], Log = df2.Log[i])
-            
-            player_html = """
-                <tr>
-                    <td>$(i)</td>
-                    <td>
-                        <div class="player-info">
-                            <img src="$(row.img_url)" class="player-photo" alt="$(row.name)">
-                            $(row.name)
-                        </div>
-                    </td>
-                    <td>
-                        $(round(Int, row.current_rate))
-                    </td>
-                    <td>
-                        $(round(Int, row.max_rate))
-                    </td>
-                    <td>$(row.Log)</td>
-                </tr>
-            """
-            push!(rows2, player_html)
-        end
-        
-        table2 = "<table class=\"Max_screen no\">" * join(rows2) * "</table>"
-        
-        return table1 * table2
+        return table
     catch e
         @error "Error generating ranking table" exception=(e, catch_backtrace())
         return "<p>ランキングの読み込み中にエラーが発生しました。</p>"
@@ -109,9 +62,9 @@ function generate_and_save_html()
         println("index.html が正常に生成されました。")
         
         # Gitコマンドを実行してGitHubにプッシュ
-        run(`git add index.html`)
-        run(`git commit -m "Update ranking: $(current_time)"`)
-        run(`git push origin main`)
+        # run(`git add index.html`)
+        # run(`git commit -m "Update ranking: $(current_time)"`)
+        # run(`git push origin main`)
 
         println("GitHubへのアップロードが完了しました。")
     catch e

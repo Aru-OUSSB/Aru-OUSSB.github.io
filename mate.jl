@@ -28,7 +28,7 @@ function main()
 
         rank = sortperm(junban, rev=true)
 
-        df = (ID=ID[rank], Name = user_name[rank], url = user_image_url[rank], Now = rate_now[rank], Max = rate_max[rank], Log = rate_log[rank])
+        df = (ID=ID[rank], Name = user_name[rank], url = user_image_url[rank], Now = rate_now[rank], Max = rate_max[rank], Log = rate_log[rank], ID = ID[rank])
 
         
         
@@ -67,21 +67,6 @@ function main()
         )
     end
 end
-
-# function main_once_a_day()
-#     user_name = Vector{String}(undef,N)
-#     user_image_url = Vector{String}(undef,N)
-#     rate_now = Vector{Int}(undef,N)
-#     rate_max = Vector{Int}(undef,N)
-#     rate_log = Vector{String}(undef,N)
-
-#     for i in 1:N
-#         ID2df(i,user_name,user_image_url,rate_now,rate_max,rate_log)
-#     end
-
-#     df0 = DataFrame(ID = ID, Name = user_name, Now = rate_now, Max = rate_max)
-#     CSV.write("./mate_data.csv",df0)
-# end
 
 function get_current_ranking()
     

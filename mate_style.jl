@@ -16,6 +16,9 @@ const HTML_TEMPLATE = """<!DOCTYPE html>
                 align-items: center;
                 padding: 0px;
                 background-color: white;
+                font-family: "fantasy";
+                font-size: 5vw;
+                font-weight: bolder;
             }
             .flex-box1 {
                 position: relative;
@@ -55,7 +58,7 @@ const HTML_TEMPLATE = """<!DOCTYPE html>
                 text-align: center;
                 width: 13.5vw; 
                 height: 6vw;
-                font-weight: bold;
+                font-weight: 700;
                 font-size: 3.5vw;
             }
             .player-photo {
@@ -127,6 +130,9 @@ const HTML_TEMPLATE = """<!DOCTYPE html>
                 align-items: center;
                 padding: 0px;
                 background-color: white;
+                font-family: "fantasy";
+                font-size: 3vw;
+                font-weight: bolder;
             }
             .flex-box1 {
                 position: relative;
@@ -237,6 +243,9 @@ const HTML_TEMPLATE = """<!DOCTYPE html>
                 align-items: center;
                 padding: 0px;
                 background-color: white;
+                font-family: "fantasy";
+                font-size: 30px;
+                font-weight: bolder;
             }
             .flex-box1 {
                 position: relative;
@@ -341,4 +350,8 @@ const HTML_TEMPLATE = """<!DOCTYPE html>
         }        
     </style>
 </head>
-"""
+
+<body>
+    <div id="flexDisplay" class="flex-box0">
+        OUSSB RATE RANKING
+        """

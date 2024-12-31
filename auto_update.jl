@@ -3,12 +3,14 @@ f = open("./mate_ID.jl")
 lines = readlines(f)
 close(f)
 
+run(`git add Figs`)
 run(`git add auto_update.jl`)
 run(`git add index.html`)
 run(`git add generate_static_html.jl`)
 run(`git add mate_function.jl`)
 run(`git add mate_ID.jl`)
 run(`git add mate_kankyo.jl`)
+run(`git add mate_style.jl`)
 run(`git add mate.jl`)
 run(`git add README.md`)
 run(`git add start_auto_update.bat`)
@@ -19,7 +21,7 @@ try
     run(`git commit -m "shokisettei"`)
 catch
 end
-run(`git pull -f https://github.com/Aru-OUSSB/Aru-OUSSB.github.io.git main:main`)
+# run(`git pull -f https://github.com/Aru-OUSSB/Aru-OUSSB.github.io.git main:main`)
 
 include("./mate_function.jl")
 include("./mate_kankyo.jl")
