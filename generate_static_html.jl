@@ -51,7 +51,7 @@ function generate_and_save_html()
     try
         html = generate_ranking_table()
         current_time = Dates.format(now(), "yyyy_mm_dd_HH:MM")
-        html = replace(html, "{{TIMESTAMP}}" => "作成日時: $(current_time)")
+        html = replace(html, "{{TIMESTAMP}}" => "$(current_time)")
         # HTMLファイルを保存
         output_path = "./index.html"
         open(output_path, "w") do io
