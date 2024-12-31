@@ -16,7 +16,7 @@ const HTML_TEMPLATE = """<!DOCTYPE html>
                 align-items: center;
                 padding: 0px;
                 background-color: white;
-                font-family: "fantasy";
+                font-family: "Roboto", sans-serif;
                 font-size: 5vw;
                 font-weight: bolder;
             }
@@ -130,7 +130,7 @@ const HTML_TEMPLATE = """<!DOCTYPE html>
                 align-items: center;
                 padding: 0px;
                 background-color: white;
-                font-family: "fantasy";
+                font-family: "Roboto", sans-serif;
                 font-size: 3vw;
                 font-weight: bolder;
             }
@@ -243,7 +243,7 @@ const HTML_TEMPLATE = """<!DOCTYPE html>
                 align-items: center;
                 padding: 0px;
                 background-color: white;
-                font-family: "fantasy";
+                font-family: "Roboto", sans-serif;
                 font-size: 30px;
                 font-weight: bolder;
             }
