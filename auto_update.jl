@@ -21,7 +21,7 @@ try
     run(`git commit -m "shokisettei"`)
 catch
 end
-# run(`git pull -f https://github.com/Aru-OUSSB/Aru-OUSSB.github.io.git main:main`)
+run(`git pull -f https://github.com/Aru-OUSSB/Aru-OUSSB.github.io.git main:main`)
 
 include("./mate_function.jl")
 include("./mate_kankyo.jl")
