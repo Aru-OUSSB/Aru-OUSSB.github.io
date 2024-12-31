@@ -28,7 +28,7 @@ function main()
 
         rank = sortperm(junban, rev=true)
 
-        df = (ID=ID[rank], Name = user_name[rank], url = user_image_url[rank], Now = rate_now[rank], Max = rate_max[rank], Log = rate_log[rank], ID = ID[rank])
+        df = (ID=ID[rank], Name = user_name[rank], url = user_image_url[rank], Now = rate_now[rank], Max = rate_max[rank], Log = rate_log[rank])
 
         
         
