@@ -59,7 +59,7 @@ function generate_and_save_html()
         end
         println("index.html が正常に生成されました。")
         
-        Gitコマンドを実行してGitHubにプッシュ
+        # Gitコマンドを実行してGitHubにプッシュ
         run(`git add index.html`)
         run(`git commit -m "Update ranking: $(current_time)"`)
         run(`git push origin main`)
