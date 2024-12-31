@@ -189,7 +189,7 @@ const HTML_TEMPLATE = """<!DOCTYPE html>
                 font-size: 2.5vw;
                 height: 9vw;
                 bottom: 0px;
-                width: 28vw;
+                width: 24vw;
                 vertical-align: middle;
                 left: 22vw;
             }
@@ -302,7 +302,7 @@ const HTML_TEMPLATE = """<!DOCTYPE html>
                 font-size: 25px;
                 height: 90px;
                 bottom: 0px;
-                width: 280px;
+                width: 240px;
                 vertical-align: middle;
                 left: 220px;
             }
