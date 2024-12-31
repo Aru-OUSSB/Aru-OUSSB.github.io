@@ -20,7 +20,10 @@ try
 catch
 end
 run(`git pull -f https://github.com/Aru-OUSSB/Aru-OUSSB.github.io.git main:main`)
+
+include("./mate_function.jl")
 include("./mate_kankyo.jl")
+include("./mate_style.jl")
 
 f = open("./mate_ID.jl")
 lines2 = readlines(f)

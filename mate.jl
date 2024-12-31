@@ -1,7 +1,5 @@
 using HTTP
 
-include("./mate_function.jl")
-
 const N = length(ID)
 
 function main()
