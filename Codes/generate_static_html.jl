@@ -1,8 +1,3 @@
-using HTTP
-using Dates
-
-include("mate.jl")
-
 # ランキングテーブルを生成する関数
 function generate_ranking_table()
     try
@@ -34,11 +29,6 @@ function generate_ranking_table()
     </div>
 </body>
 </html>"""
-        
-        # rank2 = [df.Max[i]*10000 + df.Now[i] + 1/df.ID[i] for i in 1:N]
-        # junban2 = sortperm(rank2, rev=true)
-        # df2 = (ID=df.ID[junban2], Name = df.Name[junban2], url = df.url[junban2], Now = df.Now[junban2], Max = df.Max[junban2], Log = df.Log[junban2])
-        
         return table
     catch e
         @error "Error generating ranking table" exception=(e, catch_backtrace())
@@ -53,7 +43,7 @@ function generate_and_save_html()
         current_time = Dates.format(now(), "yyyy_mm_dd_HH:MM")
         html = replace(html, "{{TIMESTAMP}}" => "$(current_time)")
         # HTMLファイルを保存
-        output_path = "./index.html"
+        output_path = "../index.html"
         open(output_path, "w") do io
             write(io, html)
         end
@@ -70,6 +60,3 @@ function generate_and_save_html()
         rethrow(e)
     end
 end
-
-# HTMLファイルを生成
-generate_and_save_html()
