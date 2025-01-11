@@ -43,7 +43,7 @@ function generate_and_save_html()
         current_time = Dates.format(now(), "yyyy_mm_dd_HH:MM")
         html = replace(html, "{{TIMESTAMP}}" => "$(current_time)")
         # HTMLファイルを保存
-        output_path = "../index.html"
+        output_path = "./index.html"
         open(output_path, "w") do io
             write(io, html)
         end

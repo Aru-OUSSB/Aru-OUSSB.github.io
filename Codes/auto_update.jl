@@ -29,7 +29,6 @@ function run_update()
         generate_and_save_html()
         current_time = Dates.format(now(), "HH:MM")
         println("$(current_time): ランキングを更新しました")
-            
         # 10分待機
         sleep(600)
     end
