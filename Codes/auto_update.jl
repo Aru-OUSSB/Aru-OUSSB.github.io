@@ -12,7 +12,7 @@ try
     run(`git commit -m "setting"`)
 catch
 end
-# run(`git pull -f https://github.com/Aru-OUSSB/Aru-OUSSB.github.io.git main:main`)
+run(`git pull -f https://github.com/Aru-OUSSB/Aru-OUSSB.github.io.git main:main`)
 
 include("./install_pkg.jl")
 
