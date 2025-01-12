@@ -64,36 +64,11 @@ function ID2df(i,user_name,user_image_url,rate_now,rate_max,rate_log)
     retry_delay = rand(5:10)  # 5-10秒のランダムな待機時間
 
     for retry_count in 1:max_retries
-        try
-            # より自然なブラウザヘッダー
-            headers = [
-                "User-Agent" => random_user_agent(),
-                "Accept" => "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8",
-                "Accept-Language" => "ja,en-US;q=0.9,en;q=0.8",
-                "Accept-Encoding" => "gzip, deflate, br",
-                "Connection" => "close",
-                "Cache-Control" => "max-age=0",
-                "Sec-Ch-Ua" => "\"Google Chrome\";v=\"119\", \"Chromium\";v=\"119\", \"Not?A_Brand\";v=\"24\"",
-                "Sec-Ch-Ua-Mobile" => "?0",
-                "Sec-Ch-Ua-Platform" => "\"Windows\"",
-                "Sec-Fetch-Dest" => "document",
-                "Sec-Fetch-Mode" => "navigate",
-                "Sec-Fetch-Site" => "none",
-                "Sec-Fetch-User" => "?1",
-                "Upgrade-Insecure-Requests" => "1",
-                "Pragma" => "no-cache"
-            ]
-            
+        try            
             # リクエスト前に少し待機
             sleep(rand(2:4))
             
-            response = HTTP.get(url, headers; 
-                redirect=true,
-                retry=false,
-                readtimeout=30,
-                connect_timeout=30,
-                status_exception=false
-            )
+            response = HTTP.get(url)
 
             # レスポンスステータスのチェック
             if response.status != 200
