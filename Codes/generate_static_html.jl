@@ -8,27 +8,31 @@ function generate_ranking_table()
         for i in 1:N
             row = (img_url=df.url[i], name=df.Name[i], current_rate=df.Now[i], max_rate=df.Max[i], Log = df.Log[i], ID = df.ID[i])
             
+            if row.max_rate < 1500
+                break
+            end
+
             player_html = """
-        <div class="flex-box1">
-            <div class="rank"></div>
-            <div class="rank_num">$i</div>
-            <div class="player-photo">
-                <img src="$(row.img_url)" class="player-photo" alt="$(row.name)">
-            </div>
-            <div class="name">$(row.name)</div>
-            <div class="fighter0"></div>
-            <div class="fighter"><img src = "https://raw.githubusercontent.com/Aru-OUSSB/Aru-OUSSB.github.io/refs/heads/main/Figs/$(row.ID).avif" ></div>
-            <div class="rate0">RATE</div>
-            <div class="rate">$(row.current_rate) / $(row.max_rate)</div>
-        </div>
+                        <div class="flex-box1">
+                            <div class="rank"></div>
+                            <div class="rank_num">$i</div>
+                            <div class="player-photo">
+                                <img src="$(row.img_url)" class="player-photo" alt="$(row.name)">
+                            </div>
+                            <div class="name">$(row.name)</div>
+                            <div class="fighter0"></div>
+                            <div class="fighter"><img src = "https://raw.githubusercontent.com/Aru-OUSSB/Aru-OUSSB.github.io/refs/heads/main/Figs/$(row.ID).avif" ></div>
+                            <div class="rate0">RATE</div>
+                            <div class="rate">$(row.current_rate) / $(row.max_rate)</div>
+                        </div>
             """
             push!(rows, player_html)
         end
         
         table = HTML_TEMPLATE * join(rows) * """
-    </div>
-</body>
-</html>"""
+                </div>
+            </body>
+        </html>"""
         return table
     catch e
         @error "Error generating ranking table" exception=(e, catch_backtrace())
