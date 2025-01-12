@@ -8,7 +8,7 @@ function generate_ranking_table()
         for i in 1:N
             row = (img_url=df.url[i], name=df.Name[i], current_rate=df.Now[i], max_rate=df.Max[i], Log = df.Log[i], ID = df.ID[i])
             
-            if row.max_rate < 1500
+            if row.max_rate == 1000
                 break
             end
 
